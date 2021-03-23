@@ -13,7 +13,7 @@ public class Main {
         jFrame.getContentPane().add(graphicsClass);
 
         jFrame.setBackground(Color.BLACK);
-        jFrame.setBounds(300,30,715,745);
+        jFrame.setBounds(300,30,715,750);
         jFrame.setResizable(false);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

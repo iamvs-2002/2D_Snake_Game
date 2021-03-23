@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Random;
 
 public class GraphicsClass extends JPanel implements KeyListener, ActionListener {
 
@@ -11,8 +12,17 @@ public class GraphicsClass extends JPanel implements KeyListener, ActionListener
     private int[] snake_x_length = new int[500];
     private int[] snake_y_length = new int[500];
 
+    //position of food
+    private int[] food_x_pos = {25,50,75,100,125,150,175,200,225,250,275,300,325,350,375,400,425,450,475,500,525,550,575,600};
+    private int[] food_y_pos = {75,100,125,150,175,200,225,250,275,300,325,350,375,400,425,450,475,500,525,550,575};
+
     //length of snake initially
     private int lengthOfSnake = 3;
+
+    //food position
+    private Random random=new Random();
+    private int x = random.nextInt(24);
+    private int y = random.nextInt(21);
 
     //variables to check the direction of motion
     private boolean up=false, down=false, left=false, right=false;
@@ -39,11 +49,11 @@ public class GraphicsClass extends JPanel implements KeyListener, ActionListener
 
         //border of the game
         g.setColor(Color.WHITE);
-        g.drawRect(24,24,651,631);
+        g.drawRect(24,24,651,626);
 
         //the game frame
         g.setColor(Color.BLACK);
-        g.fillRect(25,25,650,630);
+        g.fillRect(25,25,650,625);
 
 
         //initial position of snake
@@ -90,6 +100,18 @@ public class GraphicsClass extends JPanel implements KeyListener, ActionListener
                 snakebody.paintIcon(this,g,snake_x_length[i],snake_y_length[i]);
             }
         }
+
+        //drawing the food
+        food = new ImageIcon("food.png");
+        food.paintIcon(this,g,food_x_pos[x],food_y_pos[y]);
+
+        //updating the length and position of food when head collides with food
+        if (food_x_pos[x]==snake_x_length[0] && food_y_pos[y]==snake_y_length[0]){
+            lengthOfSnake++;
+            x = random.nextInt(24);
+            y = random.nextInt(21);
+        }
+
         g.dispose();
 
     }
@@ -163,7 +185,7 @@ public class GraphicsClass extends JPanel implements KeyListener, ActionListener
                 }
 
                 if (snake_y_length[i]<25){
-                    snake_y_length[i]=630;
+                    snake_y_length[i]=625;
                 }
             }
 
@@ -185,7 +207,7 @@ public class GraphicsClass extends JPanel implements KeyListener, ActionListener
                     snake_y_length[i] = snake_y_length[i-1];
                 }
 
-                if (snake_y_length[i]>630){
+                if (snake_y_length[i]>625){
                     snake_y_length[i]=25;
                 }
             }
