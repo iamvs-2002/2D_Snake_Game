@@ -37,6 +37,8 @@ public class GraphicsClass extends JPanel implements KeyListener, ActionListener
     //number of moves initially =0
     private int moves = 0;
 
+    private int scores=0;
+
     public GraphicsClass()
     {
         addKeyListener(this);
@@ -49,11 +51,29 @@ public class GraphicsClass extends JPanel implements KeyListener, ActionListener
 
         //border of the game
         g.setColor(Color.WHITE);
-        g.drawRect(24,24,651,626);
+        g.drawRect(24,24,651,627);
 
         //the game frame
         g.setColor(Color.BLACK);
         g.fillRect(25,25,650,625);
+
+        //show scores and length of snake
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("arial",Font.PLAIN,18));
+
+
+        //border for score panel
+        g.setColor(Color.BLACK);
+        g.drawRect(24,652,651,101);
+
+        //the game frame
+        g.setColor(Color.BLACK);
+        g.fillRect(25,653,650,100);
+
+
+        g.setColor(Color.WHITE);
+        g.drawString("Scores: "+scores, 50,680);
+        g.drawString("Length: "+lengthOfSnake, 555,680);
 
 
         //initial position of snake
@@ -67,7 +87,7 @@ public class GraphicsClass extends JPanel implements KeyListener, ActionListener
             snake_y_length[2] = 100;
 
             //initially the mouth is towards right
-            rightmouth = new ImageIcon("rightmouth.png");
+            rightmouth = new ImageIcon("assets\\rightmouth.png");
             rightmouth.paintIcon(this,g,snake_x_length[0],snake_y_length[0]);
         }
 
@@ -76,38 +96,39 @@ public class GraphicsClass extends JPanel implements KeyListener, ActionListener
             //mouth is at position 0
             if (i==0 && right){
                 //right mouth
-                rightmouth = new ImageIcon("rightmouth.png");
+                rightmouth = new ImageIcon("assets\\rightmouth.png");
                 rightmouth.paintIcon(this,g,snake_x_length[i],snake_y_length[i]);
             }
             if (i==0 && left){
                 //left mouth
-                leftmouth = new ImageIcon("leftmouth.png");
+                leftmouth = new ImageIcon("assets\\leftmouth.png");
                 leftmouth.paintIcon(this,g,snake_x_length[i],snake_y_length[i]);
             }
             if (i==0 && up){
                 //up mouth
-                upmouth = new ImageIcon("upmouth.png");
+                upmouth = new ImageIcon("assets\\upmouth.png");
                 upmouth.paintIcon(this,g,snake_x_length[i],snake_y_length[i]);
             }
             if (i==0 && down){
                 //down mouth
-                downmouth = new ImageIcon("downmouth.png");
+                downmouth = new ImageIcon("assets\\downmouth.png");
                 downmouth.paintIcon(this,g,snake_x_length[i],snake_y_length[i]);
             }
             else{
                 //snake body
-                snakebody = new ImageIcon("snakebody.png");
+                snakebody = new ImageIcon("assets\\snakebody.png");
                 snakebody.paintIcon(this,g,snake_x_length[i],snake_y_length[i]);
             }
         }
 
         //drawing the food
-        food = new ImageIcon("food.png");
+        food = new ImageIcon("assets\\food.png");
         food.paintIcon(this,g,food_x_pos[x],food_y_pos[y]);
 
         //updating the length and position of food when head collides with food
         if (food_x_pos[x]==snake_x_length[0] && food_y_pos[y]==snake_y_length[0]){
             lengthOfSnake++;
+            scores++;
             x = random.nextInt(24);
             y = random.nextInt(21);
         }
@@ -118,6 +139,7 @@ public class GraphicsClass extends JPanel implements KeyListener, ActionListener
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        timer.start();
         //from actionlistener interface
         //starts when the timer begins
 
@@ -228,6 +250,7 @@ public class GraphicsClass extends JPanel implements KeyListener, ActionListener
         if(e.getKeyCode() == KeyEvent.VK_SPACE){
             //restart
             moves=0;
+            scores=0;
             lengthOfSnake=3;
             repaint();
         }

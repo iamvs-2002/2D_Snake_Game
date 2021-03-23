@@ -2,8 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Main {
-    public static void main(String[] args) {
-
+    public static void main(String[] args)
+    {
         //setting the frame
         JFrame jFrame = new JFrame();
         jFrame.setTitle("2D Snake Game");
@@ -13,7 +13,7 @@ public class Main {
         jFrame.getContentPane().add(graphicsClass);
 
         jFrame.setBackground(Color.BLACK);
-        jFrame.setBounds(300,30,715,750);
+        jFrame.setBounds(300,30,715,775);
         jFrame.setResizable(false);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
