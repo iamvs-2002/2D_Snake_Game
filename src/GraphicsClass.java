@@ -133,6 +133,33 @@ public class GraphicsClass extends JPanel implements KeyListener, ActionListener
             y = random.nextInt(21);
         }
 
+
+        //checking the collision of head with body
+        for (int b=1;b<lengthOfSnake;b++){
+            if (snake_x_length[b]==snake_x_length[0] && snake_y_length[b]==snake_y_length[0]){
+                moves=0;
+                scores=0;
+                lengthOfSnake=3;
+                //repaint();
+                right = false;
+                left = false;
+                up = false;
+                down = false;
+
+                g.setColor(Color.WHITE);
+                g.setFont(new Font("serif",Font.BOLD,50));
+                g.drawString("Game Over!", 210, 330);
+
+
+
+                //restart the game when space is pressed
+                g.setFont(new Font("serif",Font.BOLD,18));
+                g.drawString("Press space to restart",260, 350);
+
+
+            }
+        }
+
         g.dispose();
 
     }
