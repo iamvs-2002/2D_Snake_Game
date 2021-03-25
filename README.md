@@ -14,9 +14,6 @@ A simple 2D Snake Game built in Java.
   <img src="https://github.com/iamvs-2002/2D_Snake_Game/blob/master/game/image1.png" width="300" height="300">
   <img src="https://github.com/iamvs-2002/2D_Snake_Game/blob/master/game/image2.png" width="300" height="300">
   <img src="https://github.com/iamvs-2002/2D_Snake_Game/blob/master/game/image3.png" width="300" height="300">
-</p>
-
-<p align="center">
   <img src="https://github.com/iamvs-2002/2D_Snake_Game/blob/master/game/video.gif" width="300" height="300">
- </p>
+</p>
 
