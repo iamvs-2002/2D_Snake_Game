@@ -9,12 +9,14 @@ A simple 2D Snake Game built in Java.
 
 
 ### Below are the images showing what project looks like, along with a video at the end:
-- Game Begins
-  * ![Game Begins](https://github.com/iamvs-2002/2D_Snake_Game/blob/master/game/image1.png)
-- Game in progress
-  * ![Game Conitnues](https://github.com/iamvs-2002/2D_Snake_Game/blob/master/game/image2.png)
-- Game Over
-  * ![Game Over](https://github.com/iamvs-2002/2D_Snake_Game/blob/master/game/image3.png)
-- Game Video
-  * ![Game Video](https://github.com/iamvs-2002/2D_Snake_Game/blob/master/game/video.gif)
+
+<p align="center">
+  <img src="https://github.com/iamvs-2002/2D_Snake_Game/blob/master/game/image1.png" width="300" height="300">
+  <img src="https://github.com/iamvs-2002/2D_Snake_Game/blob/master/game/image2.png" width="300" height="300">
+  <img src="https://github.com/iamvs-2002/2D_Snake_Game/blob/master/game/image3.png" width="300" height="300">
+</p>
+
+<p align="center">
+  <img src="https://github.com/iamvs-2002/2D_Snake_Game/blob/master/game/video.gif" width="300" height="300">
+ </p>
 
